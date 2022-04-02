@@ -49,7 +49,7 @@ $(function () {
             success:function (data) {
                 $("#btn_login").val("登录");
                 if (data.success) {
-                    cookieUtil.setCookie("username", username, 30);
+                    cookieUtil.setCookie("admin_name", username, 30);
                     location.href = "/tmall/admin";
                 } else {
                     styleUtil.errorShow($("#txt_error_msg"), "用户名或密码错误");
@@ -80,7 +80,7 @@ function initialCookie() {
     var url;
     var username;
     if(document.cookie.length>0) {
-        username = cookieUtil.getCookie("username");
+        username = cookieUtil.getCookie("admin_name");
         url = cookieUtil.getCookie("backgroundImageUrl");
         if(url !== null) {
             $("#div_background").css("background-image", url);
@@ -114,7 +114,7 @@ function initialData() {
 //获取用户头像
 function getUserProfilePicture(username) {
     if(username !== null && username !== ""){
-        $.getJSON("/tmall/admin/login/profile_picture",{"username":username},function (data) {
+        $.getJSON("/tmall/admin/login/profile_picture",{"admin_name":username},function (data) {
             if(data.success){
                 if(data.srcString !== null){
                     $("#img_profile_picture").attr("src", "/tmall/res/images/item/adminProfilePicture/" + data.srcString);

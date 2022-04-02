@@ -31,9 +31,9 @@ public class AdminLoginController extends BaseController {
     //登陆验证-ajax
     @ResponseBody
     @RequestMapping(value = "admin/login/doLogin",method = RequestMethod.POST,produces = "application/json;charset=utf-8")
-    public String checkLogin(HttpSession session, @RequestParam String username, @RequestParam String password) {
+    public String checkLogin(HttpSession session, @RequestParam String admin_name, @RequestParam String admin_password) {
         logger.info("管理员登录验证");
-        Admin admin = adminService.login(username,password);
+        Admin admin = adminService.login(admin_name,admin_password);
 
         JSONObject object = new JSONObject();
         if(admin == null){

@@ -4,7 +4,7 @@
         "mybatis-3-mapper.dtd">
 <mapper namespace="com.xq.tmall.dao.AdminMapper">
     <insert id="insertOne" parameterType="admin">
-        INSERT admin(admin_id,admin_name,admin_nickname,admin_password,admin_profile_picture_src)
+        INSERT gly(admin_id,admin_name,admin_nickname,admin_password,admin_profile_picture_src)
             VALUES (
             null,
             #{admin.admin_id},
@@ -14,7 +14,7 @@
             #{admin.admin_profile_picture_src})
     </insert>
     <update id="updateOne" parameterType="admin">
-        UPDATE admin
+        UPDATE gly
         <set>
             <if test="admin.admin_profile_picture_src != null">admin_profile_picture_src = #{admin.admin_profile_picture_src},</if>
             <if test="admin.admin_nickname != null">admin_nickname = #{admin.admin_nickname},</if>
@@ -25,7 +25,7 @@
         </where>
     </update>
     <select id="select" resultType="admin">
-        SELECT admin_id,admin_name,admin_nickname,admin_profile_picture_src FROM admin
+        SELECT admin_id,admin_name,admin_nickname,admin_profile_picture_src FROM gly
         <if test="pageUtil != null">
             LIMIT #{pageUtil.index},#{pageUtil.count}
         </if>
@@ -36,7 +36,7 @@
         </where>
     </select>
     <select id="selectOne" resultType="admin" parameterType="int">
-        SELECT admin_id,admin_name,admin_nickname,admin_profile_picture_src FROM admin
+        SELECT admin_id,admin_name,admin_nickname,admin_profile_picture_src FROM gly
         <where>
             <if test="admin_id != null">
                 admin_id = #{admin_id}
@@ -47,13 +47,13 @@
         </where>
     </select>
     <select id="selectByLogin" resultType="admin">
-        SELECT admin_id FROM admin
+        SELECT admin_id FROM gly
         <where>
             admin_name = #{admin_name} and admin_password = #{admin_password}
         </where>
     </select>
     <select id="selectTotal" resultType="int">
-        SELECT COUNT(admin_id) FROM admin
+        SELECT COUNT(admin_id) FROM gly
         <where>
             <if test="admin_name != null">admin_name LIKE concat('%',#{admin_name},'%')</if>
         </where>
