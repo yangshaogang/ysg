@@ -72,7 +72,7 @@
             <label class="form-label tsl">昵称：</label>
             <input name="user_nickname" id="user_nickname" class="form-text err-input" placeholder="请输入昵称"
                    maxlength="20">
-            <span class="form_span"></span>
+<%--            <span class="form_span"></span>--%>
         </div>
         <div class="form-item">
             <label class="form-label tsl">性别：</label>

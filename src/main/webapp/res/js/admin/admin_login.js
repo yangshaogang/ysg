@@ -45,7 +45,7 @@ $(function () {
         $.ajax({
             url: "/tmall/admin/login/doLogin",
             type:"post",
-            data: {"username":username,"password":password},
+            data: {"admin_name":username,"admin_password":password},
             success:function (data) {
                 $("#btn_login").val("登录");
                 if (data.success) {
